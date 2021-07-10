@@ -11,18 +11,19 @@ Handles drawing information in the scene view, such as brush and model count.
 using System.Text;
 using UnityEditor;
 using UnityEngine;
-
-using System.Diagnostics;
+using UnityEditor.Overlays;
 
 namespace RealtimeCSG
 {
-    internal sealed partial class SceneViewInfoGUI
+    [Overlay( typeof( SceneView ), olid, "RCSG Scene Info" )]
+    internal sealed partial class SceneViewInfoGUI : IMGUIOverlay
     {
-        private static StringBuilder sb = new StringBuilder( 64 );
+        private const  string        olid = "RCSG_IMGUI_SV_INFO_OVERLAY";
+        private static StringBuilder sb   = new StringBuilder( 64 );
 
-        public static void DrawInfoGUI( SceneView sceneView )
+        private static void DrawInfoGUI()
         {
-            InitStyles( sceneView );
+            InitStyles();
             CSG_GUIStyleUtility.InitStyles();
 
             try
@@ -42,20 +43,23 @@ namespace RealtimeCSG
                   .Append( "\nBrushes:\t" )
                   .Append( brushCount );
 
-                GUILayout.BeginArea( infoGUIRect, infoGUIBGStyle );
-                {
-                    GUILayout.FlexibleSpace();
-
-                    GUILayout.Label
-                    (
+                GUILayout.Label
+                (
                         sb.ToString(),
                         infoGUIStyle,
                         GUILayout.Height( infoGUILabelHeight )
-                    );
-                }
-                GUILayout.EndArea();
+                );
             }
-            finally { Handles.EndGUI(); }
+            finally
+            {
+                Handles.EndGUI();
+            }
+        }
+
+        /// <inheritdoc />
+        public override void OnGUI()
+        {
+            DrawInfoGUI();
         }
     }
 }

@@ -60,7 +60,7 @@ namespace RealtimeCSG
 			//if (fallbackGUI)
 			{
 				SceneViewBottomBarGUI.ShowGUI(sceneView);
-                SceneViewInfoGUI.DrawInfoGUI( sceneView );
+                //SceneViewInfoGUI.DrawInfoGUI( sceneView );
 			}
 
 			EditModeManager.OnSceneGUI(sceneView);
@@ -71,7 +71,7 @@ namespace RealtimeCSG
 				if (Event.current.type == EventType.Repaint)
 				{
 					SceneViewBottomBarGUI.ShowGUI(sceneView);
-                	SceneViewInfoGUI.DrawInfoGUI( sceneView );
+                	//SceneViewInfoGUI.DrawInfoGUI( sceneView );
 				}
 				if (!mousePressed)
 				{
