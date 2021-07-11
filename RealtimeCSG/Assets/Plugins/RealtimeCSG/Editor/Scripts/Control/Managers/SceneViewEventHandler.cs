@@ -63,6 +63,7 @@ namespace RealtimeCSG
                 //SceneViewInfoGUI.DrawInfoGUI( sceneView );
 			}
 
+			// $TODO: this needs to be removed eventually.
 			EditModeManager.OnSceneGUI(sceneView);
 
 			//if (fallbackGUI)
