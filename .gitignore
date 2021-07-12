@@ -4,7 +4,7 @@
 [Bb]uild/
 [Bb]uilds/
 [Pp]ackages/
-[Uu]ser[Ss]ettings/
+UserSettings/
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
@@ -53,3 +53,4 @@ ProjectSettings/ProjectVersion\.txt
 *.lib
 
 Packages/com\.chisel\.core/Chisel/Core/API\.private/Native/Plugin/x64/Chisel\[TEST\]\.exp\.meta
+RealtimeCSG/UserSettings/Layouts/default-2021.dwlt
